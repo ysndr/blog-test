@@ -73,6 +73,16 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
+    - name: Notify User
+      uses: mshick/add-pr-comment@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        message: |
+          **__Deployed preview__** 🚀
+
+          [#$GITHUB_PR_NUMBER](https://ysndr.de/beta/$GITHUB_PR_NUMBER)
+
   deploy-release:
     needs: build
     runs-on: ubuntu-latest
