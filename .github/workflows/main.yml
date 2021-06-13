@@ -12,6 +12,7 @@ env:
 
 jobs:
   build:
+    name: "Build"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -32,6 +33,7 @@ jobs:
         path: ./build/site
 
   deploy-preview:
+    name: Deploy Preview
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
@@ -84,6 +86,7 @@ jobs:
           [#${{ env.GITHUB_PR_NUMBER }}](https://ysndr.de/beta/${{ env.GITHUB_PR_NUMBER }})
 
   deploy-release:
+    name: Deploy Release
     needs: build
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
