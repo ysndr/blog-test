@@ -87,7 +87,7 @@ jobs:
     - name: Deploy to GitHub
       uses: crazy-max/ghaction-github-pages@v2
       with:
-        target_branch: gh-pages2
+        target_branch: gh-pages
         build_dir: ./release
         name: github-ci <notifications+ci-blog@ysndr.de>
 
