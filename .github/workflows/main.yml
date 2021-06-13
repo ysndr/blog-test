@@ -81,7 +81,7 @@ jobs:
         message: |
           **__Deployed preview__** 🚀
 
-          [#$GITHUB_PR_NUMBER](https://ysndr.de/beta/$GITHUB_PR_NUMBER)
+          [#${{ env.GITHUB_PR_NUMBER }}](https://ysndr.de/beta/${{ env.GITHUB_PR_NUMBER }})
 
   deploy-release:
     needs: build
