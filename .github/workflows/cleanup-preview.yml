@@ -14,7 +14,7 @@ jobs:
     - name: Pull release
       uses: actions/checkout@v2
       with:
-        repo: ysndr/blog-preview
+        repo: ysndr/beta
         ref: gh-pages
 
     - name: Remove Preview
@@ -25,7 +25,7 @@ jobs:
     - name: Push
       uses: crazy-max/ghaction-github-pages@v2
       with:
-        repo: ysndr/blog-preview
+        repo: ysndr/beta
         target_branch: gh-pages
         build_dir: ./.
         committer_name: github-ci

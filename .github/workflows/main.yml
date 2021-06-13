@@ -39,7 +39,7 @@ jobs:
     - name: Download Preview Repo
       uses: actions/checkout@v2
       with:
-        repository: ysndr/blog-beta
+        repository: ysndr/beta
         ref: gh-pages
         path: preview
 
@@ -65,7 +65,7 @@ jobs:
     - name: Deploy to GitHub
       uses: crazy-max/ghaction-github-pages@v2
       with:
-        repo: ysndr/blog-beta
+        repo: ysndr/beta
         target_branch: gh-pages
         build_dir: ./preview
         committer: github-ci <notifications+ci-blog@ysndr.de>
