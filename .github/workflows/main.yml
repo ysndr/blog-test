@@ -44,9 +44,13 @@ jobs:
     - name: Download Preview Repo
       uses: actions/checkout@v2
       with:
-        repository: ysndr/blog-preview
+        repository: ysndr/blog-beta
         ref: gh-pages
         path: preview
+
+    - name: Untrack preview
+      run: rm -rf ./preview/.git
+
 
     - name: Download Current Build
       uses: actions/download-artifact@v2
@@ -66,12 +70,11 @@ jobs:
     - name: Deploy to GitHub
       uses: crazy-max/ghaction-github-pages@v2
       with:
-        repo: ysndr/blog-preview
+        repo: ysndr/blog-beta
         target_branch: gh-pages
         build_dir: ./preview
-        committer:
-          name: github-ci
-          email: notifications+ci-blog@ysndr.de
+        committer: github-ci <notifications+ci-blog@ysndr.de>
+        keep_history: true;
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
@@ -91,8 +94,8 @@ jobs:
       with:
         target_branch: gh-pages2
         build_dir: ./release
-        committer_name: github-ci
-        committer-email: notifications+ci-blog@ysndr.de
+        name: github-ci <notifications+ci-blog@ysndr.de>
+
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
