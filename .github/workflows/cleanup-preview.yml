@@ -1,4 +1,4 @@
-name: "Build Site and Deploy"
+name: "Cleanup Preview"
 
 on:
   pull_request:
@@ -14,18 +14,25 @@ jobs:
     - name: Pull release
       uses: actions/checkout@v2
       with:
+        repository: ysndr/beta
         ref: gh-pages
+        path: preview
 
     - name: Remove Preview
       run: |
-        rm -r preview/$GITHUB_PR_NUMBER
+        [[ -d ./${{ env.GITHUB_PR_NUMBER }} ]] && rm -r ./${{ env.GITHUB_PR_NUMBER }}
+        true
+
+        rm  -rf preview/.git
+
 
     - name: Push
       uses: crazy-max/ghaction-github-pages@v2
       with:
+        repo: ysndr/beta
         target_branch: gh-pages
-        build_dir: ./.
-        committer_name: github-ci
-        committer-email: notifications+ci-blog@ysndr.de
+        build_dir: ./preview
+        committer: github-ci <notifications+ci-blog@ysndr.de>
+        verbose: true
       env:
-        GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        GH_PAT: ${{ secrets.DEPLOY_TOKEN }}
