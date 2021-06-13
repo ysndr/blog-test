@@ -7,7 +7,7 @@ on:
 
 env:
   GITHUB_PR_NUMBER: "${{github.event.number}}"
-  PREVIEW_PATH: "./release/preview"
+  PREVIEW_PATH: "./preview"
 
 
 jobs:
@@ -37,19 +37,17 @@ jobs:
         path: ./build/site
 
 
-  deploy:
+  deploy-preview:
     needs: build
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
-    - name: Download Release
+    - name: Download Preview Repo
       uses: actions/checkout@v2
       with:
-        repository: ysndr/blog
+        repository: ysndr/blog-preview
         ref: gh-pages
-        path: release
-
-    - name: Remove git dir
-      run: rm -rf ./release/.git/
+        path: preview
 
     - name: Download Current Build
       uses: actions/download-artifact@v2
@@ -57,8 +55,7 @@ jobs:
         name: blog-build
         path: current
 
-    - name: Apply as Preview
-      if: github.event_name == 'pull_request'
+    - name: Apply Preview
       run: |
         export PR_PATH="$PREVIEW_PATH/$GITHUB_PR_NUMBER"
 
@@ -67,32 +64,38 @@ jobs:
 
         mv ./current $PR_PATH
 
-    - name: Apply as Release
-      if: github.event_name != 'pull_request'
-      run: |
+    - name: Deploy to GitHub
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        repo: ysndr/blog-preview
+        target_branch: gh-pages
+        build_dir: ./preview
+        committer_name: github-ci
+        committer-email: notifications+ci-blog@ysndr.de
+      env:
+        GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
-        mv $PREVIEW_PATH ./current/preview
-        rm -r ./release
-        mv ./current ./release
-
-    - name: Upload (including preview)
-      uses: actions/upload-artifact@v2
+  deploy-preview:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    steps:
+    - name: Download Current Build
+      uses: actions/download-artifact@v2
       with:
         name: blog-build
-        path: |
-          release
-
-
+        path: release
 
     - name: Deploy to GitHub
       uses: crazy-max/ghaction-github-pages@v2
       with:
         target_branch: gh-pages2
-        build_dir: release
+        build_dir: ./release
         committer_name: github-ci
         committer-email: notifications+ci-blog@ysndr.de
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+
 
 
   always-run:

@@ -14,15 +14,18 @@ jobs:
     - name: Pull release
       uses: actions/checkout@v2
       with:
+        repo: ysndr/blog-preview
         ref: gh-pages
 
     - name: Remove Preview
       run: |
-        rm -r preview/$GITHUB_PR_NUMBER
+        [[ -d ./$GITHUB_PR_NUMBER ]] && rm -r $GITHUB_PR_NUMBER
+
 
     - name: Push
       uses: crazy-max/ghaction-github-pages@v2
       with:
+        repo: ysndr/blog-preview
         target_branch: gh-pages
         build_dir: ./.
         committer_name: github-ci
