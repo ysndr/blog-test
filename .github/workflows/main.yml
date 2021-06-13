@@ -69,8 +69,9 @@ jobs:
         repo: ysndr/blog-preview
         target_branch: gh-pages
         build_dir: ./preview
-        committer_name: github-ci
-        committer-email: notifications+ci-blog@ysndr.de
+        committer:
+          name: github-ci
+          email: notifications+ci-blog@ysndr.de
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
