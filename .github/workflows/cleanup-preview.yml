@@ -23,7 +23,7 @@ jobs:
 
     - name: Remove Preview
       run: |
-        [[ -d ./$GITHUB_PR_NUMBER ]] && rm -r $GITHUB_PR_NUMBER
+        [[ -d ./$GITHUB_PR_NUMBER ]] && rm -r ./$GITHUB_PR_NUMBER
         true
 
 
