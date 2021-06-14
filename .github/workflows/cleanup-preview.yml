@@ -33,4 +33,4 @@ jobs:
         committer: github-ci <notifications+ci-blog@ysndr.de>
         keep_history: true
       env:
-        GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        GH_PAT: ${{ secrets.DEPLOY_TOKEN }}
