@@ -16,14 +16,15 @@ jobs:
       with:
         repository: ysndr/beta
         ref: gh-pages
+        path: preview
 
     - name: Remove Preview
       run: |
         ls -la
-        [ -d ./${{ env.GITHUB_PR_NUMBER }} ] && rm -r ./${{ env.GITHUB_PR_NUMBER }}
+        [ -d preview/${{ env.GITHUB_PR_NUMBER }} ] && rm -r preview/${{ env.GITHUB_PR_NUMBER }}
         ls -la
 
-        rm  -rf .git
+        rm  -rf preview/.git
 
 
     - name: Push
@@ -31,7 +32,7 @@ jobs:
       with:
         repo: ysndr/beta
         target_branch: gh-pages
-        build_dir: ./.
+        build_dir: ./preview
         committer: github-ci <notifications+ci-blog@ysndr.de>
         keep_history: true
         verbose: true
