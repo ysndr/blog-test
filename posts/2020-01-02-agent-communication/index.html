@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="y|sndr - Agent Communication">
+  <meta property="og:description" content="A blog about nix, rust, haskell and more">
+  <meta property="og:image" content="/assets/images/feature-x-small.jpg">
+  <meta property="og:url" content="https://blog.ysndr.de/">
+  <title>y|sndr - Agent Communication</title>
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">  <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="../../rss.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="../../atom.xml" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/images/favicon/site.webmanifest">
+</head>
+
+<body class="flex flex-col overflow-x-hidden text-body text-black leading-normal">
+  <header class="bg-muted font-standout leading-snug">
+
+    <div class="flex flex-col sm:flex-row items-center my-8 container justify-items-center">
+      <div class="flex flex-col text-right text-emphasis">
+          <h1 class="inline-flex flex-col">Agent Communication
+          <small>Welcome to this Blog</small>
+          </h1>
+          <span class="text-xs text-muted">
+          
+          </span>
+      </div>
+      <hr class="hidden sm:block sm:h-24 sm:w-px mx-4 my-4 sm:my-auto min-w-px">
+      <div class="text-sm text-muted sm:w-5/12 md:w-2/5">
+        <ul>
+          <li class="flex">
+            <i class="las la-calendar-day mr-4"></i> January  2, 2020
+          </li>
+          <li class="flex">
+            <i class="las la-stopwatch mr-4"></i> 6 Minutes
+          </li>
+          
+          <li class="flex">
+            <i class="las la-code-branch mr-4"></i>
+            <a class="uk-link-muted" href="https://github.com/ysndr/blog/commit/d8922d1">d8922d1: Merge pull request #14 from ysndr/preview-action2</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <hr class="container" />
+
+</header>
+
+
+  <header class="sticky font-standout inset-0 z-50 min-w-full bg-muted text-base">
+  <nav class="container grid grid-cols-3">
+
+
+
+    <div class="flex flex-col">
+      <a type="button" class="content-center my-auto text-muted w-max"><svg xmlns="http://www.w3.org/2000/svg" class="inline-block h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 6h20 M4 12h20 M4 18h20"></path>
+      </svg><span class="ml-2 uppercase text-xs">Menu</span></a>
+
+
+      <div uk-dropdown class="container hidden">
+            <div class="inset-x-0 absolute container px-8 grid sm:grid-cols-3 sm:gap-8 shadow-lg bg-white text-sm text-muted fill-current stroke-current pb-6">
+              <div>
+                <ul class="flex flex-col gap-2">
+                  <li class="uppercase text-black">Who?</li>
+                  <li><a href="../../about">About Me</a></li>
+                  <li><a href="https://gist.github.com/ysndr/978662957bb9187fd52b2037466e1e34">CV</a></li>
+                  <li><hr></li>
+                  <li>
+                    <ul class="gap-2" horizontal>
+                      <li><a href="mailto:contact@ysndr.de"><i class="las la-envelope-open-text"></i></a></li>
+                      <li><a href="https://linkedin.com/in/yannik-sander"><i class="lab la-linkedin-in"></i></a>
+                      </li>
+                      <li><a href="https://github.com/ysndr"><i class="lab la-github"></i></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+             <hr class="sm:hidden">
+              <div>
+                <ul class="flex flex-col gap-2">
+                  <li class="text-black uppercase">What?</li>
+                  <li><a href="https://github.com/ysndr">Projects</a></li>
+                  <li><hr></li>
+                  <li><a href="https://github.com/ysndr/sam-knn-regressor">sam-knn-regressor</a></li>
+                  <li><a href="https://github.com/ysndr/nixos-config">NixOS Config</a></li>
+                </ul>
+              </div>
+              <hr class="sm:hidden">
+              <div>
+                <ul class="flex flex-col gap-2">
+                  <li class="uppercase text-black">Blog</li>
+                  <li><a href="../../about">About Me</a></li>
+                  <li><a href="../../archive">Archive</a></li>
+                  <li class="flex">
+                    <span>
+                      <svg class="w-4 h-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="rss" stroke="currentColor"><circle cx="3.12" cy="16.8" r="1.85"></circle><path fill="none" stroke-width="1.1" d="M1.5,8.2 C1.78,8.18 2.06,8.16 2.35,8.16 C7.57,8.16 11.81,12.37 11.81,17.57 C11.81,17.89 11.79,18.19 11.76,18.5"></path><path fill="none" stroke-width="1.1" d="M1.5,2.52 C1.78,2.51 2.06,2.5 2.35,2.5 C10.72,2.5 17.5,9.24 17.5,17.57 C17.5,17.89 17.49,18.19 17.47,18.5"></path></svg>
+                    </span>
+                    <ul class="gap-4 items-center ml-2" horizontal>
+                      <li><a href="../../rss.xml">RSS</a></li>
+                      <li><a href="../../atom.xml">Atom</a></li>
+                    </ul>
+                  </li>
+                  <li><hr></li>
+                  <li><a href="https://github.com/ysndr/blog/commit/d8922d1"><span><svg class="w-4 h-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="git-branch"><circle fill="none" stroke-width="1.2" cx="7" cy="3" r="2"></circle><circle fill="none" stroke-width="1.2" cx="14" cy="6" r="2"></circle><circle fill="none" stroke-width="1.2" cx="7" cy="17" r="2"></circle><path fill="none" stroke-width="2" d="M14,8 C14,10.41 12.43,10.87 10.56,11.25 C9.09,11.54 7,12.06 7,15 L7,5"></path></svg></span>   current rev.: d8922d1: Merge pull request #14 from ysndr/preview-action2</a></li>
+                </ul>
+              </div>
+            </div>
+      </div>
+
+    </div>
+
+
+    <div class="uk-navbar-nav uk-flex-1 py-4 align-items-center">
+
+      <a href="../../" class="flex items-center justify-center">
+          <img src="../../assets/images/logo-small.svg" alt="y|sndr" class="h-8" />
+        </a>
+
+
+    </div>
+
+
+
+    
+    <div class="flex flex-col items-end md:relative">
+        <a class="content-center uppercase my-auto text-muted w-max" type="button">
+          <span class="md:hidden">Content</span> <span class="hidden md:block">Table of Contents</span>
+        </a>
+        <div class="y-toc hidden" uk-drop>
+          <div class="container max-w-full sm:max-w-sm  bg-white p-6 w-full absolute text-muted right-0 shadow-xl rounded-b" uk-scrollspy-nav="closest: li; scroll: true; offset: 85; cls: text-emphasis">
+            <ul class><li><a href="#coordination"><span>Coordination</span><span></span></a><ul class><li><a href="#coherent-behaviour"><span>Coherent behaviour</span><span></span></a></li><li><a href="#control-decisions"><span>Control decisions</span><span></span></a><ul class><li><a href="#kinds-of-control"><span>Kinds of control</span><span></span></a></li><li><a href="#network-control"><span>Network Control</span><span></span></a><ul class><li><a href="#example-allocation-of-search-space-regions-to-agents"><span>Example: allocation of search-space regions to agents</span><span></span></a></li></ul></li><li><a href="#local-control"><span>Local Control</span><span></span></a></li><li><a href="#control-uncertainty"><span>Control uncertainty</span><span></span></a><ul class><li><a href="#solution"><span>Solution</span><span></span></a></li></ul></li></ul></li><li><a href="#coordination-steps"><span>Coordination steps</span><span></span></a></li><li><a href="#coordination-techniques"><span>Coordination techniques</span><span></span></a><ul class><li><a href="#organizational-structures"><span>Organizational structures</span><span></span></a><ul class><li><a href="#product-hierarchie"><span>Product Hierarchie</span><span></span></a></li><li><a href="#functional-hierarchy"><span>Functional Hierarchy</span><span></span></a></li><li><a href="#decentralized-markets"><span>Decentralized Markets</span><span></span></a></li><li><a href="#centralized-markets"><span>Centralized Markets</span><span></span></a></li><li><a href="#comparison"><span>Comparison</span><span></span></a></li></ul></li><li><a href="#meta-level-information-exchange"><span>Meta-level information exchange</span><span></span></a><ul class><li><a href="#partial-global-planning"><span>Partial Global Planning</span><span></span></a></li></ul></li><li><a href="#multi-agent-planning"><span>Multi-Agent planning</span><span></span></a><ul class><li><a href="#centralized-planning-for-distributed-plans"><span>Centralized planning for distributed plans</span><span></span></a></li><li><a href="#distributed-planning-for-centralised-plans"><span>Distributed Planning for centralised plans</span><span></span></a></li><li><a href="#distributed-planning-for-distributed-plans"><span>Distributed Planning for distributed plans</span><span></span></a></li></ul></li><li><a href="#explicit-analysis-and-synchronization"><span>Explicit analysis and synchronization</span><span></span></a></li><li><a href="#social-norms-and-laws"><span>Social Norms and Laws</span><span></span></a></li><li><a href="#coordination-models-based-on-human-teamwork"><span>Coordination Models based on human teamwork</span><span></span></a><ul class><li><a href="#mutual-modelling"><span>Mutual modelling</span><span></span></a></li><li><a href="#coordination-with-out-cooperation"><span>Coordination with(-out) cooperation</span><span></span></a></li><li><a href="#joint-intentions-model"><span>Joint Intentions model</span><span></span></a></li></ul></li></ul></li><li><a href="#summary"><span>Summary</span><span></span></a></li></ul></li></ul>
+          </div>
+        </div>
+    </div>
+    
+
+  </nav>
+
+</header>
+
+
+  <main class="my-8">
+    <div class="container">
+      <section class="relative">
+    
+
+<div class="h-56 sm:h-xl xl:h-2xl bg-cover w-5/6 mx-auto xl:min-w-full xl:w-auto mb-8 xl:-mx-24 rounded-lg relative shadow-2xl overflow-hidden">
+    <img src="https://unsplash.com/photos/6HdfrD20rTk/download?w=1600" alt="Article image" class="relative w-full h-full object-cover">
+
+    <div class="w-full absolute bottom-0">
+        <div class="relative">
+            <div class="bg-white rounded-full m-4 w-max float-right p-1" style="line-height: 0;" type="button"><i class="las la-copyright"></i></div>
+            <div uk-drop="pos: top-right" class="w-max hidden absolute pb-4">
+                <div class="bg-white p-6 rounded">
+                    <h4 class="uk-card-title">Credits</h4>
+                    
+                    Image taken by <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@ericmuhr?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Eric Muhr"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Eric Muhr</span></a> on Unsplash
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<article>
+
+    <p class="text-lead text-emphasis italic sm:w-5/6 mx-auto"><i>Introduction and what this is about</i></p>
+    <p><p><a href="../agent-communication/resource.txt">hello</a></p>
+<blockquote>
+<p><strong>Why</strong> do agents need to be coordinated and <strong>how to do so</strong>? Discuss common <strong>coordination techniques</strong> such as</p>
+<ul>
+<li><strong>organizational structures</strong></li>
+<li><strong>meta-level information exchange</strong></li>
+<li><strong>Multi-agent planning</strong></li>
+<li><strong>explicit analysis and synchronization</strong></li>
+<li><strong>Coordination inspired by human teamwork</strong></li>
+<li><strong>commitments and conventions</strong></li>
+</ul>
+</blockquote>
+<h1 class="y-header" id="coordination"><span>Coordination</span><a href="#coordination" class="anchor las la-anchor" title="coordination"></a></h1>
+<blockquote>
+<p>Reason about <strong>own actions</strong> and <strong>actions of others</strong> to keep the <strong>community act coherently</strong></p>
+</blockquote>
+<ul>
+<li>Prevent <strong>chaos</strong></li>
+<li>Meet global <strong>constraints</strong></li>
+<li>Distribute <strong>information</strong>, <strong>resources</strong></li>
+<li><strong>Dependent actions</strong></li>
+<li>Greater <strong>efficiency</strong> due to <strong>less redundancy</strong></li>
+</ul>
+<h2 class="y-header" id="coherent-behaviour"><span>Coherent behaviour</span><a href="#coherent-behaviour" class="anchor las la-anchor" title="coherent-behaviour"></a></h2>
+<blockquote>
+<p>Coherent behavior can be achieved through <strong>complete knowledge</strong> where all agents <strong>know about every other</strong> and <strong>mutually adjust</strong> each others actions. Agents can also be <strong>directly supervised</strong> by one <strong>central</strong> entity or multiple <strong>distributed entities</strong>.</p>
+</blockquote>
+<h2 class="y-header" id="control-decisions"><span>Control decisions</span><a href="#control-decisions" class="anchor las la-anchor" title="control-decisions"></a></h2>
+<blockquote>
+<p>Decisions <strong>what actions to take</strong> from a <strong>choice</strong> of actions, informed by <strong>control knowledge</strong>. Outcome depends on <strong>control regime</strong> which takes into account <strong>alternatives</strong>, <strong>criteria</strong> and <strong>procedure</strong>.</p>
+</blockquote>
+<blockquote>
+<p>If control choice becomes more complicated decisions become more <strong>numerous</strong>, and need to become <strong>asynchronous</strong> and <strong>decentralized</strong> to ensure efficiency.</p>
+</blockquote>
+<h3 class="y-header" id="kinds-of-control"><span>Kinds of control</span><a href="#kinds-of-control" class="anchor las la-anchor" title="kinds-of-control"></a></h3>
+<blockquote>
+<p><strong>network/cooperative control</strong> will lead to good overall performance taking into account <strong>communicated information</strong>, while <strong>local control</strong> leads to good <strong>local decisions</strong> based on <strong>local information</strong>,</p>
+</blockquote>
+<h3 class="y-header" id="network-control"><span>Network Control</span><a href="#network-control" class="anchor las la-anchor" title="network-control"></a></h3>
+<ul>
+<li>Aggregated from multiple agents</li>
+<li>Concerns relationships between agents</li>
+</ul>
+<p>Utilized to influence …</p>
+<ul>
+<li>Set of action alternatives</li>
+<li>Decision criteria</li>
+<li>Decision procedure</li>
+</ul>
+<h4 class="y-header" id="example-allocation-of-search-space-regions-to-agents"><span>Example: allocation of search-space regions to agents</span><a href="#example-allocation-of-search-space-regions-to-agents" class="anchor las la-anchor" title="example-allocation-of-search-space-regions-to-agents"></a></h4>
+<blockquote>
+<p>Transfer the set of goals into a tree structure that describes the <strong>dependencies between goals and goal as well as goals and resources</strong>.</p>
+<p>The tree is used to find a desired state of the environment that ultimately build on related goals.</p>
+<p>Subtrees of this problem can be allocated to different agents where each agents tries to solve its part of the tree.</p>
+</blockquote>
+<h3 class="y-header" id="local-control"><span>Local Control</span><a href="#local-control" class="anchor las la-anchor" title="local-control"></a></h3>
+<p>Concerning only single nodes with their own search space region.</p>
+<p><strong>network</strong> can influence control uncertainty but better local control may uncover information to focus network control decisions on.</p>
+<h3 class="y-header" id="control-uncertainty"><span>Control uncertainty</span><a href="#control-uncertainty" class="anchor las la-anchor" title="control-uncertainty"></a></h3>
+<figure>
+<img src="assets/image-20210101162513724.png" class="align-center" alt="image-20210101162513724" /><figcaption aria-hidden="true">image-20210101162513724</figcaption>
+</figure>
+<h4 class="y-header" id="solution"><span>Solution</span><a href="#solution" class="anchor las la-anchor" title="solution"></a></h4>
+<p>Reduce degree of uncertainty and its impact by reducing common dependencies.</p>
+<h2 class="y-header" id="coordination-steps"><span>Coordination steps</span><a href="#coordination-steps" class="anchor las la-anchor" title="coordination-steps"></a></h2>
+<ul>
+<li>defining the goal graph</li>
+<li>assigning regions of search space</li>
+<li>controlling decisions about which areas of the graph to explore</li>
+<li>traversing the goal structure satisfying dependencies</li>
+<li>ensuring report of the successful traversal</li>
+</ul>
+<h2 class="y-header" id="coordination-techniques"><span>Coordination techniques</span><a href="#coordination-techniques" class="anchor las la-anchor" title="coordination-techniques"></a></h2>
+<figure>
+<img src="assets/image-20210101163154296.png" class="align-center" alt="image-20210101163154296" /><figcaption aria-hidden="true">image-20210101163154296</figcaption>
+</figure>
+<ul>
+<li>Organisational Structures
+<ul>
+<li>Product hierarchy</li>
+<li>Functional hierarchy</li>
+</ul></li>
+<li>Meta-level Information Exchange
+<ul>
+<li>e.g. Partial Global Planning (PGP), <em>(Durfee)</em></li>
+</ul></li>
+<li>Multi-agent Planning</li>
+<li>Explicit Analysis and Syncronization</li>
+<li>Norms and social laws</li>
+<li>Coordination Models based on human teamwork:
+<ul>
+<li>Joint commitments <em>(Jennings)</em></li>
+<li>Mutual Modelling</li>
+</ul></li>
+</ul>
+<h3 class="y-header" id="organizational-structures"><span>Organizational structures</span><a href="#organizational-structures" class="anchor las la-anchor" title="organizational-structures"></a></h3>
+<blockquote>
+<p>Associate agents with problem types, agents are responsible for problem instances of that type.</p>
+</blockquote>
+<h4 class="y-header" id="product-hierarchie"><span>Product Hierarchie</span><a href="#product-hierarchie" class="anchor las la-anchor" title="product-hierarchie"></a></h4>
+<figure>
+<img src="assets/image-20210101165357727.png" class="align-center" alt="image-20210101165357727" /><figcaption aria-hidden="true">image-20210101165357727</figcaption>
+</figure>
+<blockquote>
+<p>Individual structures for all products so failures do not affect other products but lots of roles are set multiple times</p>
+</blockquote>
+<h4 class="y-header" id="functional-hierarchy"><span>Functional Hierarchy</span><a href="#functional-hierarchy" class="anchor las la-anchor" title="functional-hierarchy"></a></h4>
+<figure>
+<img src="assets/image-20210101165633239.png" class="align-center" alt="image-20210101165633239" /><figcaption aria-hidden="true">image-20210101165633239</figcaption>
+</figure>
+<blockquote>
+<p><strong>Pool agents</strong> of similar type into functional departments with <strong>functional managers</strong>. Failures in task agents can be reallocated but mangers pose <strong>single points of failure</strong></p>
+</blockquote>
+<h4 class="y-header" id="decentralized-markets"><span>Decentralized Markets</span><a href="#decentralized-markets" class="anchor las la-anchor" title="decentralized-markets"></a></h4>
+<figure>
+<img src="assets/image-20210101170114623.png" class="align-center" alt="image-20210101170114623" /><figcaption aria-hidden="true">image-20210101170114623</figcaption>
+</figure>
+<h4 class="y-header" id="centralized-markets"><span>Centralized Markets</span><a href="#centralized-markets" class="anchor las la-anchor" title="centralized-markets"></a></h4>
+<figure>
+<img src="assets/image-20210101170453984.png" class="align-center" alt="image-20210101170453984" /><figcaption aria-hidden="true">image-20210101170453984</figcaption>
+</figure>
+<blockquote>
+<p><strong>Fewer messages</strong> than decentralized markets (4)</p>
+<p>Similar to functional model</p>
+</blockquote>
+<h4 class="y-header" id="comparison"><span>Comparison</span><a href="#comparison" class="anchor las la-anchor" title="comparison"></a></h4>
+<figure>
+<img src="assets/image-20210101170928803.png" class="align-center" alt="image-20210101170928803" /><figcaption aria-hidden="true">image-20210101170928803</figcaption>
+</figure>
+<h3 class="y-header" id="meta-level-information-exchange"><span>Meta-level information exchange</span><a href="#meta-level-information-exchange" class="anchor las la-anchor" title="meta-level-information-exchange"></a></h3>
+<blockquote>
+<p>Share control level information about priorities and focus. Control level information can <strong>change decisions of agents</strong> but is transient and does n<strong>ot specify which goals are considered</strong>. They are therefore <strong>imprecise</strong> and only <strong>valid for a limited amount of time</strong>.</p>
+</blockquote>
+<h4 class="y-header" id="partial-global-planning"><span>Partial Global Planning</span><a href="#partial-global-planning" class="anchor las la-anchor" title="partial-global-planning"></a></h4>
+<ol type="1">
+<li>Each agent decides what its own goals are and generates short-term plans in order to achieve them.</li>
+<li>Agents exchange information to determine where plans and goals interact.</li>
+<li>Agents alter local plans in order to better coordinate their own activities.</li>
+</ol>
+<blockquote>
+<p>Reach <strong>common conclusions</strong> by <strong>exchanging local information</strong>. Generate plans only for the local subproblem and merge local plans through exchange</p>
+</blockquote>
+<blockquote>
+<p><strong>Dynamically revise plans</strong> cost-effectively in uncertain worlds.</p>
+<p>Yields <strong>no guaranteed global coordination</strong></p>
+</blockquote>
+<h3 class="y-header" id="multi-agent-planning"><span>Multi-Agent planning</span><a href="#multi-agent-planning" class="anchor las la-anchor" title="multi-agent-planning"></a></h3>
+<blockquote>
+<p>Generate <strong>explicit plans</strong>, that are <strong>synchronized</strong> and <strong>arranged apriori</strong>.</p>
+</blockquote>
+<blockquote>
+<p><strong>High amount of communication</strong> required to exchange plans and local information. Hence, the <strong>computational effort</strong> is far greater as is the demand for <strong>communication resources</strong>.</p>
+<p>Requires agents to reach <strong>mutual agreement</strong> before they start operating, which is not the case fo PGP but comes with certain <strong>guarantees</strong></p>
+</blockquote>
+<h4 class="y-header" id="centralized-planning-for-distributed-plans"><span>Centralized planning for distributed plans</span><a href="#centralized-planning-for-distributed-plans" class="anchor las la-anchor" title="centralized-planning-for-distributed-plans"></a></h4>
+<blockquote>
+<p>Central instance generates plans for distributed agents that work together to fulfill a goal by synchronizing as needed.</p>
+</blockquote>
+<h4 class="y-header" id="distributed-planning-for-centralised-plans"><span>Distributed Planning for centralised plans</span><a href="#distributed-planning-for-centralised-plans" class="anchor las la-anchor" title="distributed-planning-for-centralised-plans"></a></h4>
+<blockquote>
+<p>Central plan such as flight control rail traffic or manufacturing processes. Planning <strong>happens on the distributed layer</strong> and is <strong>merged to one central plan</strong>.</p>
+</blockquote>
+<h4 class="y-header" id="distributed-planning-for-distributed-plans"><span>Distributed Planning for distributed plans</span><a href="#distributed-planning-for-distributed-plans" class="anchor las la-anchor" title="distributed-planning-for-distributed-plans"></a></h4>
+<blockquote>
+<p>Individuals generate their own local plan, or are assigned to indivisdually generated plans. Therefore, there is <strong>no individual is aware of all other agents’ actions</strong> which makes it more difficult to detect and resolve undesirable interactions</p>
+</blockquote>
+<h3 class="y-header" id="explicit-analysis-and-synchronization"><span>Explicit analysis and synchronization</span><a href="#explicit-analysis-and-synchronization" class="anchor las la-anchor" title="explicit-analysis-and-synchronization"></a></h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled />
+todo</li>
+</ul>
+<h3 class="y-header" id="social-norms-and-laws"><span>Social Norms and Laws</span><a href="#social-norms-and-laws" class="anchor las la-anchor" title="social-norms-and-laws"></a></h3>
+<blockquote>
+<p><strong>Norms</strong> are <strong>patterns of behavior</strong> that are expected but <strong>not enforced</strong></p>
+<p><strong>Social laws</strong> are norms that <strong>are enforced</strong> and carry <strong>authority</strong></p>
+</blockquote>
+<h3 class="y-header" id="coordination-models-based-on-human-teamwork"><span>Coordination Models based on human teamwork</span><a href="#coordination-models-based-on-human-teamwork" class="anchor las la-anchor" title="coordination-models-based-on-human-teamwork"></a></h3>
+<h4 class="y-header" id="mutual-modelling"><span>Mutual modelling</span><a href="#mutual-modelling" class="anchor las la-anchor" title="mutual-modelling"></a></h4>
+<blockquote>
+<p>Build a <strong>model of other agents</strong> and <strong>coordinate own activities</strong> based on that model.</p>
+<p>Cooperation without communication</p>
+</blockquote>
+<h4 class="y-header" id="coordination-with-out-cooperation"><span>Coordination with(-out) cooperation</span><a href="#coordination-with-out-cooperation" class="anchor las la-anchor" title="coordination-with-out-cooperation"></a></h4>
+<p><strong>Without</strong>: acting similarly due to an external reason</p>
+<p><strong>With</strong>: acting similarly because you have the goal to do so</p>
+<h4 class="y-header" id="joint-intentions-model"><span>Joint Intentions model</span><a href="#joint-intentions-model" class="anchor las la-anchor" title="joint-intentions-model"></a></h4>
+<p>Based on teamwork model, requiring <strong>joint commitment</strong> for the global Ain as well s <strong>individual commitment</strong>.</p>
+<p>Pursue own assigned task <strong>and</strong> the global goal.</p>
+<h5 class="y-header" id="teamwork"><span><strong>Teamwork:</strong></span><a href="#teamwork" class="anchor las la-anchor" title="teamwork"></a></h5>
+<blockquote>
+<p><strong>Cooperative effort</strong> by team members towards a <strong>common goal</strong></p>
+</blockquote>
+<h5 class="y-header" id="commitment"><span>Commitment</span><a href="#commitment" class="anchor las la-anchor" title="commitment"></a></h5>
+<blockquote>
+<p><strong>Bound to a reason</strong>, promise pursued until unfounded</p>
+<p>Therefore if the environment changes, <strong>commitment may change</strong> as well.</p>
+<p><strong>But</strong>: Requires knowledge about each others state.</p>
+</blockquote>
+<h5 class="y-header" id="conventions"><span>Conventions</span><a href="#conventions" class="anchor las la-anchor" title="conventions"></a></h5>
+<p>Describes when to modify commitment.</p>
+<ul>
+<li><strong>Keep</strong> - (retain)</li>
+<li><strong>Revise</strong> - (rectify)</li>
+<li><strong>Remove</strong> - (abandon)</li>
+</ul>
+<pre><code>If Commitment Satisfied OR
+	 Commitment Unattainable OR
+	 Motivation for Commitment no longer present
+then
+   terminate Commitment.</code></pre>
+<h2 class="y-header" id="summary"><span>Summary</span><a href="#summary" class="anchor las la-anchor" title="summary"></a></h2>
+<ul>
+<li>Ensure coherent behavior</li>
+<li>Coordination Techniques: Organisational structures
+<ul>
+<li>Meta-level information exchange</li>
+<li>Multi-agent Planning</li>
+<li>Social norms and laws</li>
+<li>Mutual Modelling</li>
+<li>Joint Intentions</li>
+</ul></li>
+</ul></p>
+
+</article>
+
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+
+    </div>
+  </main>
+
+
+  <footer class="font-standout text-sm py-8 px-4 text-mutedDark bg-footer dark">
+      <div class="container grid sm:grid-cols-3 gap-8">
+        <div>
+
+            <h3 class="text-emphasizedDark">Contact</h3>
+            <ul class="ml-1 list-none">
+            <li><a href="mailto:contact@ysndr.de" class="text-emphasizedDark no-underline"><i class="las la-envelope-open-text"></i> contact@ysndr.de</a></li>
+            <li><a href="https://linkedin.com/in/yannik-sander" class="text-emphasizedDark no-underline"><i class="lab la-linkedin"></i></svg> yannik-sander</a></li>
+            <li>
+            <a href="https://github.com/ysndr" class="text-emphasizedDark no-underline"><i class="las la-code-branch"></i> ysndr</a></li>
+          </ul>
+
+
+        </div>
+        <div class="mt-4 sm:mt-0">
+
+          <h3 class="text-emphasizedDark">Legal</h3>
+          <ul class="ml-1 list-none">
+            <li class="inline-flex justify-items-start items-baseline mb-0">
+              <span class="las la-check-circle block mr-2"></span> No analytics are used here your data is safe :)
+            </li>
+            <li class="inline-flex items-baseline">
+              <span class="las la-check-circle block mr-2"></span> The content of this blog is licensed under CC0 terms if not otherwise noted</span>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-4 sm:mt-0">
+
+          <h3 class="text-emphasizedDark">About this blog</h3>
+          <ul class="ml-1 list-none">
+            <li>
+              Built with <i class="las la-code"></i> and <i class="lar la-heart"></i> using <a class="text-emphasizedDark no-underline" href="https://jaspervdj.be/hakyll/">Hakyll</a>
+            </li>
+            <li class="text-muted"><i class="las la-code-branch"></i> last updated: <a class="text-emphasizedDark no-underline" href="https://github.com/ysndr/blog">d8922d1: Merge pull request #14 from ysndr/preview-action2 (2021-06-14 10:38:32 +0200)</a>
+            </li>
+            <li>
+              <a class="no-underline" href="https://builtwithnix.org" rel="nofollow">
+                <img src="https://builtwithnix.org/badge.svg" style="max-width:100%;">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+  <script>
+    window.cookieconsent.initialise({
+    container: document.getElementById("content"),
+    palette:{
+     popup: {background: "#fff"},
+     button: {background: "#aa0000"},
+    },
+    revokable:true,
+    onStatusChange: function(status) {
+     console.log(this.hasConsented() ?
+      'enable cookies' : 'disable cookies');
+    },
+    law: {
+     regionalLaw: false,
+    },
+    location: false,
+   });
+  </script> -->
+</body>
+
+</html>
