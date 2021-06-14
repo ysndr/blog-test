@@ -1,4 +1,4 @@
-name: "Build Site and Deploy"
+name: "Cleanup Preview"
 
 on:
   pull_request:
