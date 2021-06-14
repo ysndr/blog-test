@@ -1,4 +1,4 @@
-name: "Build Site and Deploy"
+name: "Cleanup Preview"
 
 on:
   pull_request:
@@ -17,6 +17,10 @@ jobs:
         repo: ysndr/beta
         ref: gh-pages
 
+    - name: Remove Git
+      run: |
+        rm -rf ./.git/
+
     - name: Remove Preview
       run: |
         [[ -d ./$GITHUB_PR_NUMBER ]] && rm -r $GITHUB_PR_NUMBER
@@ -28,7 +32,7 @@ jobs:
         repo: ysndr/beta
         target_branch: gh-pages
         build_dir: ./.
-        committer_name: github-ci
-        committer-email: notifications+ci-blog@ysndr.de
+        committer: github-ci <notifications+ci-blog@ysndr.de>
+        keep_history: true
       env:
         GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
