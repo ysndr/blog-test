@@ -23,6 +23,7 @@ jobs:
 
     - name: Remove Preview
       run: |
+
         [[ -d ./${{ env.GITHUB_PR_NUMBER }} ]] && rm -r ./${{ env.GITHUB_PR_NUMBER }}
         true
 
