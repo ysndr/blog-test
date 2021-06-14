@@ -34,7 +34,6 @@ jobs:
         target_branch: gh-pages
         build_dir: ./preview
         committer: github-ci <notifications+ci-blog@ysndr.de>
-        keep_history: true
         verbose: true
       env:
         GH_PAT: ${{ secrets.DEPLOY_TOKEN }}
