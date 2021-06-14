@@ -17,14 +17,10 @@ jobs:
         repository: ysndr/beta
         ref: gh-pages
 
-    - name: Remove Git
-      run: |
-        rm -rf ./.git/
-
     - name: Remove Preview
       run: |
         ls -la
-        [ -d ./${{ env.GITHUB_PR_NUMBER }} ] && rm -r ./${{ env.GITHUB_PR_NUMBER }}
+        [ -d ./${{ env.GITHUB_PR_NUMBER }} ] && git rm -r ./${{ env.GITHUB_PR_NUMBER }}
         ls -la
 
 
